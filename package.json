@@ -14,7 +14,7 @@
     "url": "[REPO]"
   },
   "scripts": {
-    "dev": "ide-cli start",
+    "dev": "ide-cli dev",
     "test": "./node_modules/.bin/jest",
     "release": "npx standard-version",
     "build": "ide-cli build",
