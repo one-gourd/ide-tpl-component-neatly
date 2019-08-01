@@ -15,7 +15,7 @@
   },
   "scripts": {
     "dev": "ide-cli dev",
-    "install:peers": "ide-cli install",
+    "install:peers": "ide-cli install --use tnpm",
     "install:all": "tnpm install && npm run install:peers",
     "test": "./node_modules/.bin/jest",
     "release": "npx standard-version",
@@ -35,9 +35,10 @@
     "@types/react-dom": "16.x.x",
     "@types/styled-components": "^4.1.4",
     "ide-component-cli": "0.2.x",
+    "jest": "^24.8.0",
     "chance": "^1.0.16",
     "ts-import-plugin": "^1.5.5",
-    "ts-jest": "^23.10.5",
+    "ts-jest": "^24.0.2",
     "ts-node": "^7.0.1",
     "typescript": "3.3.4000"
   },
