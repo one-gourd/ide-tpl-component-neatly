@@ -40,7 +40,7 @@ git clone [REPO]
 npm install
 
 ## 安装 peerDependencies 依赖包
-npm install [PEERLIST]
+npm run install:all
 ```
 
 运行以下命令后，访问 demo 地址： http://localhost:9000

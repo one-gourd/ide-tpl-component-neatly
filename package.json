@@ -15,6 +15,8 @@
   },
   "scripts": {
     "dev": "ide-cli dev",
+    "install:peers": "ide-cli install",
+    "install:all": "tnpm install && npm run install:peers",
     "test": "./node_modules/.bin/jest",
     "release": "npx standard-version",
     "build": "ide-cli build",
@@ -32,6 +34,7 @@
     "@types/react": "16.x.x",
     "@types/react-dom": "16.x.x",
     "@types/styled-components": "^4.1.4",
+    "ide-component-cli": "0.2.x",
     "chance": "^1.0.16",
     "ts-import-plugin": "^1.5.5",
     "ts-jest": "^23.10.5",
@@ -55,7 +58,7 @@
     "mobx": "4.x",
     "mobx-react": "5.x",
     "mobx-react-lite": "1.x",
-    "mobx-state-tree": "3.10.x",
+    "mobx-state-tree": "3.14.x",
     "react": "16.x",
     "styled-components": "4.x.x",
     "react-dom": "16.x"
