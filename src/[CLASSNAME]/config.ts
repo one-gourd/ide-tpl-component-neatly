@@ -1,11 +1,18 @@
 import { types } from 'mobx-state-tree';
-import { BASE_CONTROLLED_KEYS } from 'ide-lib-base-component';
+import {
+  BASE_CONTROLLED_KEYS, JSONModel,
+  EMPTY_JSON_SNAPSHOT } from 'ide-lib-base-component';
 
 import { IStoresModel, IModuleConfig } from 'ide-lib-engine';
 import { DEFAULT_PROPS, I[CLASSNAME]Props } from '.';
 import { showConsole } from './solution/model';
 
 import { subComponents, ISubProps } from './subs';
+
+import {
+  otherControlledKeyMap,
+  mergeRule
+} from './model/index';
 
 import { router as GetRouter } from './router/get';
 import { router as PostRouter } from './router/post';
@@ -22,6 +29,7 @@ export const config[CLASSNAME]: IModuleConfig<I[CLASSNAME]Props, ISubProps> = {
       onClick: [showConsole]
     },
     defaultProps: DEFAULT_PROPS,
+    mergeRule,
     children: subComponents
   },
   router: {
@@ -43,9 +51,11 @@ export const config[CLASSNAME]: IModuleConfig<I[CLASSNAME]Props, ISubProps> = {
   },
   model: {
     controlledKeys: [], // 后续再初始化
+    otherControlledKeyMap,
     props: {
       visible: types.optional(types.boolean, true),
-      text: types.optional(types.string, '')
+      text: types.optional(types.string, ''),
+      urlConfig: types.optional(JSONModel, EMPTY_JSON_SNAPSHOT)
       // language: types.optional(
       //   types.enumeration('Type', CODE_LANGUAGES),
       //   ECodeLanguage.JS
