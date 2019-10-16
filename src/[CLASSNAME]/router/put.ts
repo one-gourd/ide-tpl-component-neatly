@@ -1,5 +1,5 @@
 import Router from 'ette-router';
-import { updateStylesMiddleware, updateThemeMiddleware, buildNormalResponse } from 'ide-lib-base-component';
+import { updateStylesMiddleware, updateThemeMiddleware, buildNormalResponse, updateCStateMiddleware } from 'ide-lib-base-component';
 import { mergeWithLevel } from 'ide-lib-utils';
 
 
@@ -19,9 +19,14 @@ router.put('updateModel', '/model', function(ctx: IContext) {
   const pickedOrigin = {};
   let targetValue = value;
   if (otherControlledKeyMap[name]) {
-    otherControlledKeyMap[name].forEach((keyName: string) => {
-      pickedOrigin[keyName] = originValue[keyName];
-    });
+    // 为 0 表示全部
+    if (otherControlledKeyMap[name].length === 0) {
+      pickedOrigin = originValue;
+    } else {
+      otherControlledKeyMap[name].forEach((keyName: string) => {
+        pickedOrigin[keyName] = originValue[keyName];
+      });
+    }
   }
   // 是否有对应的 merge 规则
   if (mergeRule[name]) {
@@ -32,6 +37,9 @@ router.put('updateModel', '/model', function(ctx: IContext) {
 
   buildNormalResponse(ctx, 200, { success: isSuccess, origin: originValue }, `属性 ${name} 的值从 ${originValue} -> ${value} 的变更: ${isSuccess}`);
 });
+
+// 更新 cstate 属性
+router.put('updateCstate', '/model/cstate', updateCStateMiddleware);
 
 
 // 更新 css 属性
