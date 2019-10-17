@@ -1,7 +1,7 @@
-export const otherControlledKeyMap = {
+export const otherControlledKeyMap: {[key: string]: any} = {
     urlConfig: ['url', 'params'],
 };
 
-export const mergeRule = {
+export const mergeRule: { [key: string]: any } = {
     urlConfig: { level: 1 }
 };

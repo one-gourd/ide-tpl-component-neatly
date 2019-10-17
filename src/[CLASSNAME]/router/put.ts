@@ -16,7 +16,7 @@ router.put('updateModel', '/model', function(ctx: IContext) {
   const originValue = stores.model[name];
 
   // 如果是有 mergeRule 的属性，需要额外的操作
-  const pickedOrigin = {};
+  let pickedOrigin: { [key: string]: any } = {};
   let targetValue = value;
   if (otherControlledKeyMap[name]) {
     // 为 0 表示全部
