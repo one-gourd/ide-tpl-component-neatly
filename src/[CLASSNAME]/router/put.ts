@@ -7,6 +7,8 @@ import { IContext } from './helper';
 import { otherControlledKeyMap, mergeRule } from '../model/index';
 
 export const router = new Router();
+
+//__START:ROUTE
 // 更新单项属性
 router.put('updateModel', '/model', function(ctx: IContext) {
   const { stores, request } = ctx;
@@ -37,6 +39,7 @@ router.put('updateModel', '/model', function(ctx: IContext) {
 
   buildNormalResponse(ctx, 200, { success: isSuccess, origin: originValue }, `属性 ${name} 的值从 ${originValue} -> ${value} 的变更: ${isSuccess}`);
 });
+//__END:ROUTE
 
 // 更新 cstate 属性
 router.put('updateCstate', '/model/cstate', updateCStateMiddleware);

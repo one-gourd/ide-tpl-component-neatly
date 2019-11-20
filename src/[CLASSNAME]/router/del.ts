@@ -5,8 +5,11 @@ import { IContext } from './helper';
 
 export const router = new Router();
 
+//__START:ROUTE
 // 移除操作
 router.del('resetModel', '/model', function (ctx: IContext) {
   const { stores } = ctx;
   buildNormalResponse(ctx, 200, { node: stores.resetToEmpty()})
 });
+
+//__END:ROUTE

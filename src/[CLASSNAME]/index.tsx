@@ -7,11 +7,14 @@ import { TComponentCurrying } from 'ide-lib-engine';
 import { StyledContainer } from './styles';
 import { ISubProps } from './subs';
 
+//__START:MODS
+//__END:MODS
+
+
 export interface I[CLASSNAME]Event {
-  /**
-   * 点击回调函数
-   */
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  //__START:EVENTS
+  onClick?: React.MouseEventHandler<HTMLButtonElement>; // 点击回调函数
+  //__END:EVENTS
 }
 
 // export interface I[CLASSNAME]Styles extends IBaseStyles {
@@ -26,15 +29,12 @@ export interface I[CLASSNAME]Props
   extends I[CLASSNAME]Event,
   ISubProps,
   IBaseComponentProps {
-  /**
-   * 是否展现
-   */
-  visible?: boolean;
 
-  /**
-   * 文案
-   */
-  text?: string;
+  //__START:PROPS
+  visible?: boolean; // 是否展现
+
+  text?: string; // 文案
+  //__END:PROPS
 }
 
 export const DEFAULT_PROPS: I[CLASSNAME]Props = {
@@ -66,7 +66,13 @@ export const [CLASSNAME]Currying: TComponentCurrying<
     [SUBCOMP_START]
     headerBar, 
     [SUBCOMP_END]
-    visible, text, styles, onClick } = props;
+    styles,
+    //__START:USE_PROP
+    visible,
+    text,
+    onClick,
+    //__END:USE_PROP
+     } = props;
   
   [SUBCOMP_START]
   const { HeaderBar } = subComponents as Record<

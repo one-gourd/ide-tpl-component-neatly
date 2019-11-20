@@ -8,6 +8,7 @@ import { [CLASSNAME]Model } from '../../index';
 
 export const router = new Router();
 
+//__START:ROUTE
 // 创新新的 model 
 router.post('createModel', '/model', function (ctx: IContext) {
   const { stores, request } = ctx;
@@ -17,3 +18,5 @@ router.post('createModel', '/model', function (ctx: IContext) {
 
   buildNormalResponse(ctx, 200, { success: true });
 });
+
+//__END:ROUTE

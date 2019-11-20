@@ -5,7 +5,7 @@ import {
 
 import { IStoresModel, IModuleConfig } from 'ide-lib-engine';
 import { DEFAULT_PROPS, I[CLASSNAME]Props } from '.';
-import { showConsole } from './solution/model';
+import { modelSolutions } from './solution/model';
 
 import { subComponents, ISubProps } from './subs';
 
@@ -14,10 +14,8 @@ import {
   mergeRule
 } from './model/index';
 
-import { router as GetRouter } from './router/get';
-import { router as PostRouter } from './router/post';
-import { router as PutRouter } from './router/put';
-import { router as DelRouter } from './router/del';
+import { modelRouters } from './router/index';
+
 [SUBCOMP_START]
 import { routerHoistTable } from './router/helper';
 [SUBCOMP_END]
@@ -25,16 +23,14 @@ import { routerHoistTable } from './router/helper';
 export const config[CLASSNAME]: IModuleConfig<I[CLASSNAME]Props, ISubProps> = {
   component: {
     className: '[CLASSNAME]',
-    solution: {
-      onClick: [showConsole]
-    },
+    solution: modelSolutions,
     defaultProps: DEFAULT_PROPS,
     mergeRule,
     children: subComponents
   },
   router: {
     domain: '[DEBUGNAME]',
-    list: [GetRouter, PostRouter, PutRouter, DelRouter],
+    list: modelRouters,
     [SUBCOMP_START]
     hoistRoutes: {
       alias: 'bar',
@@ -53,8 +49,10 @@ export const config[CLASSNAME]: IModuleConfig<I[CLASSNAME]Props, ISubProps> = {
     controlledKeys: [], // 后续再初始化
     otherControlledKeyMap,
     props: {
+      //__START:PROPS
       visible: types.optional(types.boolean, true),
       text: types.optional(types.string, ''),
+      //__END:PROPS
       urlConfig: types.optional(JSONModel, EMPTY_JSON_SNAPSHOT)
       // language: types.optional(
       //   types.enumeration('Type', CODE_LANGUAGES),
