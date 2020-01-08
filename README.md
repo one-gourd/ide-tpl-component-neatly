@@ -47,6 +47,7 @@ npm run install:all
 ```shell
 npm run dev
 ```
+> 如果遇到无法启动、报错的情况，将 `ide.config.js` 中的 **proxyLibs** 字段注释掉（这字段是方便本地不同组件之间联调的）
 
 也可访问 [storybook](https://github.com/storybooks/storybook) 参考具体的使用案例：http://localhost:9001/
 ```shell
