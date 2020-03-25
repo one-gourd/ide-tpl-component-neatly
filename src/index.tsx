@@ -26,3 +26,7 @@ export {
 };
 
 export interface I[CLASSNAME]Model extends Instance<typeof [CLASSNAME]Model> { }
+
+// 定义版本号
+declare const __VERSION__: string;
+export const VERSION_[CLASSNAME] = __VERSION__;
