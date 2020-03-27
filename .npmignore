@@ -13,6 +13,7 @@ coverage
 demo
 tsconfig.json
 jest.config.js
+ide.config.js
 webpack.*.js
 .github
 node-helper

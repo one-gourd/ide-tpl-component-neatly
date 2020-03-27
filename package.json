@@ -40,7 +40,7 @@
     "ts-import-plugin": "^1.5.5",
     "ts-jest": "^24.0.2",
     "ts-node": "^7.0.1",
-    "typescript": "^3.5.3"
+    "typescript": "^3.8.3"
   },
   "dependencies": {
 [SUBCOMP_START]
