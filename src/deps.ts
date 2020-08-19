@@ -12,6 +12,11 @@ const getUnpkgPath = (name: string, version?: string, midPath?: string, fileName
 // export const BASEURL = '//dev.g.alicdn.com/lf/lf-canvas-assets/0.1.6/externaljs/';
 
 declare const __PUBLIC_PATH__: string;
+declare global {
+    interface Window {
+        lf[CLASSNAME]: any;
+    }
+}
 
 const URL_INSTANCE_TREE = __PUBLIC_PATH__ + `index.dynamic.umd.js`;
 
