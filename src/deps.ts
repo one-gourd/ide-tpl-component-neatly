@@ -4,10 +4,10 @@
 import { loadScriptsQueue, IScriptsLoadResult, loadScript } from 'ide-lib-utils';
 let lastLoadResult: IScriptsLoadResult = {};
 
-const UNPKG_DOMAIN = '//unpkg.com/ide-lib-engine/dist/index.umd.js';
+const UNPKG_DOMAIN = 'unpkg.com';
 const getUnpkgPath = (name: string, version?: string, midPath?: string, fileName = 'index.umd.js') => {
     const middlePath = midPath || 'dist';
-    return !!version ? `${UNPKG_DOMAIN}/${name}/${middlePath}/${fileName}` : `${UNPKG_DOMAIN}/${name}@${version}/${middlePath}/${fileName}`;
+    return !!version ? `//${UNPKG_DOMAIN}/${name}/${middlePath}/${fileName}` : `//${UNPKG_DOMAIN}/${name}@${version}/${middlePath}/${fileName}`;
 };
 // export const BASEURL = '//dev.g.alicdn.com/lf/lf-canvas-assets/0.1.6/externaljs/';
 
@@ -31,7 +31,7 @@ export const dependScripts = [
     },
     {
         name: 'styled',
-        path: getUnpkgPath('styled-components', null, null, 'styled-components.min.js')
+        path: getUnpkgPath('styled-components', '4.1.3', null, 'styled-components.min.js')
     },
     {
         name: 'ideLibUtils',

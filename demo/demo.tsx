@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { render } from 'react-dom';
-import { load[CLASSNAME], T[CLASSNAME] } from '../src/index.dynamic';
+import { load[CLASSNAME]WithDeps, T[CLASSNAME] } from '../src/index.dynamic';
 import { Collapse } from 'antd';
 const Panel = Collapse.Panel;
 
-load[CLASSNAME]().then((MainModule: T[CLASSNAME]) => {
+load[CLASSNAME]WithDeps().then((MainModule: T[CLASSNAME]) => {
   console.log('Module loaded: ', MainModule);
 
   const {

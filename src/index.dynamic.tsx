@@ -24,7 +24,7 @@ export const load[CLASSNAME]WithDeps = () => {
     emitter.on('noload:[CLASSNAME]', (e: { error: any }) => {
       reject(e && e.error);
     });
-    loadDependencies()
+    return loadDependencies()
       .then(async result => {
         debugComp('[load[CLASSNAME] with deps] load result: ', result);
         const mainModule = await load[CLASSNAME]();
