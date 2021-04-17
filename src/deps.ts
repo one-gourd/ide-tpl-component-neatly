@@ -7,7 +7,7 @@ let lastLoadResult: IScriptsLoadResult = {};
 const UNPKG_DOMAIN = 'unpkg.com';
 const getUnpkgPath = (name: string, version?: string, midPath?: string, fileName = 'index.umd.js') => {
     const middlePath = midPath || 'dist';
-    return !!version ? `//${UNPKG_DOMAIN}/${name}/${middlePath}/${fileName}` : `//${UNPKG_DOMAIN}/${name}@${version}/${middlePath}/${fileName}`;
+    return !version ? `//${UNPKG_DOMAIN}/${name}/${middlePath}/${fileName}` : `//${UNPKG_DOMAIN}/${name}@${version}/${middlePath}/${fileName}`;
 };
 // export const BASEURL = '//dev.g.alicdn.com/lf/lf-canvas-assets/0.1.6/externaljs/';
 
